@@ -258,7 +258,7 @@
   }
   .plate img{
     display:block;width:100%;height:auto;
-    max-height:62vh;object-fit:contain;
+    max-height:74vh;object-fit:contain;
     filter:saturate(1.08) contrast(1.03);
   }
   .plate .cap{
@@ -287,8 +287,8 @@
   }
 
   /* wide panoramic plate (banner) */
-  .plate.wide{width:min(1120px,92vw);}
-  .plate.wide img{max-height:46vh;}
+  .plate.wide{width:min(1280px,94vw);}
+  .plate.wide img{max-height:56vh;}
   /* gold-toned (for the B&W intricate hanging) */
   img.toned{filter:sepia(.9) saturate(1.5) hue-rotate(-12deg) brightness(1.05) contrast(1.04);}
 
@@ -314,7 +314,7 @@
 
   /* ===== Peacock-eye close-up ===== */
   .closeup{
-    position:relative;width:min(56vh,44vw);aspect-ratio:1;border-radius:50%;
+    position:relative;width:min(66vh,52vw);aspect-ratio:1;border-radius:50%;
     background-image:url('images/peacock-badge.jpg');
     background-size:300%;background-position:68% 27%;
     border:1px solid rgba(216,178,94,.5);
@@ -342,7 +342,7 @@
   .thumbs{display:flex;gap:clamp(1.4rem,3.5vw,3.2rem);
     margin-top:5.5vmin;flex-wrap:wrap;justify-content:center;}
   .thumb{display:flex;flex-direction:column;align-items:center;gap:1.3vmin;
-    width:clamp(150px,20vw,232px);}
+    width:clamp(180px,24vw,280px);}
   .thumb .mat{position:relative;padding:8px;width:100%;
     background:linear-gradient(160deg,#15101f,#0c0912);
     border:1px solid rgba(216,178,94,.45);
@@ -366,10 +366,10 @@
     .split,.split.flip{grid-template-columns:1fr;gap:3rem;}
     .split .copy{align-items:center;text-align:center;order:2;}
     .split .copy .tags{justify-content:center;}
-    .plate img{max-height:42vh;}
-    .plate.wide img{max-height:30vh;}
-    .closeup{width:min(40vh,68vw);}
-    .thumb{width:clamp(110px,26vw,150px);}
+    .plate img{max-height:50vh;}
+    .plate.wide img{max-height:38vh;}
+    .closeup{width:min(48vh,78vw);}
+    .thumb{width:clamp(130px,30vw,180px);}
   }
 
   /* ===== Chrome (progress / counter / hint) ===== */
