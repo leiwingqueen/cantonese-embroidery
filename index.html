@@ -6,30 +6,33 @@
 <title>Cantonese Embroidery — A Hidden Treasure of Chinese Culture</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Noto+Serif+SC:wght@300;400;600;900&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&family=ZCOOL+KuaiLe&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#0d0a14;
-    --ink-2:#1a1322;
-    --gold:#d8b25e;
-    --gold-soft:#e9d39a;
-    --gold-deep:#a9823a;
-    --silk:#f4ecdc;
-    --red:#c8324b;
-    --peacock:#1f9c8e;
-    --peacock-bright:#3fd8c4;
-    --violet:#8d5cc4;
-    --rose:#e0668a;
-    --paper:#f4ecdc;
+    /* 亮色童趣主题 */
+    --ink:#5a4636;          /* 文字主色：暖棕，柔和不刺眼 */
+    --ink-2:#7a6450;
+    --gold:#ffb429;         /* 明快暖黄/金 */
+    --gold-soft:#ffd166;
+    --gold-deep:#f08a24;    /* 暖橙 */
+    --silk:#5a4636;         /* 主文字用暖棕替代原浅色 */
+    --red:#ff5d73;          /* 亮珊瑚红 */
+    --peacock:#13b5a6;      /* 孔雀绿 */
+    --peacock-bright:#2ad6c4;
+    --violet:#9b6bff;       /* 明快紫 */
+    --rose:#ff84ab;         /* 粉红 */
+    --paper:#fff8ec;        /* 奶油底色 */
+    --sky:#8ed7ff;          /* 天空蓝 */
+    --grass:#9be15d;        /* 草绿 */
   }
 
   *{margin:0;padding:0;box-sizing:border-box;}
 
-  html,body{height:100%;background:var(--ink);overflow:hidden;}
+  html,body{height:100%;background:var(--paper);overflow:hidden;}
 
   body{
-    font-family:'Spectral',serif;
-    color:var(--silk);
+    font-family:'Fredoka','Noto Sans SC',sans-serif;
+    color:var(--ink);
     -webkit-font-smoothing:antialiased;
   }
 
@@ -46,84 +49,82 @@
     transform:scale(1.04);
     transition:opacity .9s ease, transform 1.1s cubic-bezier(.16,.84,.3,1), visibility .9s;
     background:
-      radial-gradient(120% 90% at 50% -10%, #241733 0%, transparent 55%),
-      radial-gradient(100% 80% at 50% 120%, #160f20 0%, transparent 60%),
-      linear-gradient(160deg,#0d0a14 0%, #15101f 50%, #0b0811 100%);
+      radial-gradient(120% 90% at 50% -10%, #fff6db 0%, transparent 55%),
+      radial-gradient(100% 80% at 50% 120%, #d8f3ff 0%, transparent 60%),
+      linear-gradient(160deg,#fff8ec 0%, #fdeecf 50%, #ffe9f0 100%);
   }
   .slide.active{opacity:1;visibility:visible;transform:scale(1);z-index:2;}
 
-  /* grain + thread overlays */
+  /* 柔和圆点 + 斜纹叠层（童趣纹理） */
   .slide::before{
     content:"";position:absolute;inset:0;pointer-events:none;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-    opacity:.6;mix-blend-mode:overlay;
+    background-image:radial-gradient(rgba(255,180,41,.16) 1.6px, transparent 1.7px);
+    background-size:26px 26px;
+    opacity:.7;
   }
   .slide::after{
     content:"";position:absolute;inset:0;pointer-events:none;
-    background:repeating-linear-gradient(135deg, rgba(216,178,94,.025) 0 2px, transparent 2px 7px);
-    opacity:.5;
+    background:repeating-linear-gradient(135deg, rgba(155,107,255,.04) 0 3px, transparent 3px 9px);
+    opacity:.6;
   }
 
-  /* gilded frame */
+  /* 圆角彩色画框 */
   .frame{
     position:absolute;inset:3.2vmin;
-    border:1px solid rgba(216,178,94,.22);
+    border:3px dashed rgba(255,180,41,.5);
+    border-radius:28px;
     pointer-events:none;z-index:5;
   }
-  .frame span{position:absolute;width:42px;height:42px;opacity:.85;}
-  .frame span::before,.frame span::after{content:"";position:absolute;background:var(--gold);opacity:.7;}
-  .frame span::before{width:100%;height:1.5px;}
-  .frame span::after{height:100%;width:1.5px;}
-  .frame .tl{top:-1px;left:-1px;} .frame .tr{top:-1px;right:-1px;}
-  .frame .bl{bottom:-1px;left:-1px;} .frame .br{bottom:-1px;right:-1px;}
-  .frame .tr::after,.frame .tr::before{right:0;} .frame .bl::before{bottom:0;}
-  .frame .br::after{right:0;} .frame .br::before{right:0;bottom:0;}
+  .frame span{display:none;}
 
   /* ===== Typography ===== */
   .kicker{
-    font-family:'Cormorant Garamond',serif;
-    letter-spacing:.55em;text-transform:uppercase;
+    font-family:'Fredoka','Noto Sans SC',sans-serif;
+    letter-spacing:.18em;text-transform:uppercase;
     font-size:clamp(.7rem,1.5vw,1.05rem);
-    font-weight:600;color:var(--gold);
-    padding-left:.55em;
+    font-weight:600;color:var(--gold-deep);
+    padding:.4em 1.1em;
     margin-bottom:3vmin;
+    background:rgba(255,180,41,.16);
+    border-radius:999px;
   }
   .cn{
-    font-family:'Noto Serif SC',serif;font-weight:300;
-    color:var(--gold-soft);
+    font-family:'ZCOOL KuaiLe','Noto Sans SC',sans-serif;font-weight:400;
+    color:var(--gold-deep);
   }
   h1{
-    font-family:'Cormorant Garamond',serif;
-    font-weight:600;line-height:1.02;
+    font-family:'Baloo 2','Noto Sans SC',sans-serif;
+    font-weight:800;line-height:1.02;
     font-size:clamp(3rem,9.5vw,9.5rem);
     letter-spacing:-.01em;
+    color:var(--peacock);
   }
   h1 .em{
-    font-style:italic;font-weight:500;
-    background:linear-gradient(180deg,var(--gold-soft),var(--gold-deep));
+    font-weight:800;
+    background:linear-gradient(180deg,var(--gold),var(--gold-deep));
     -webkit-background-clip:text;background-clip:text;color:transparent;
   }
   h2{
-    font-family:'Cormorant Garamond',serif;
-    font-weight:600;line-height:1.04;
+    font-family:'Baloo 2','Noto Sans SC',sans-serif;
+    font-weight:700;line-height:1.04;
     font-size:clamp(2.4rem,7vw,6rem);
     letter-spacing:-.01em;
   }
   .lead{
-    font-family:'Spectral',serif;font-weight:300;
+    font-family:'Fredoka','Noto Sans SC',sans-serif;font-weight:400;
     font-size:clamp(1.15rem,2.7vw,2.1rem);
     line-height:1.55;max-width:26ch;
-    color:#e7dcc6;opacity:.92;
+    color:var(--ink-2);opacity:.95;
   }
   .lead.wide{max-width:34ch;}
   .quote{
-    font-family:'Cormorant Garamond',serif;font-style:italic;
-    font-weight:500;line-height:1.18;
+    font-family:'Baloo 2','Noto Sans SC',sans-serif;
+    font-weight:700;line-height:1.18;
     font-size:clamp(2rem,6vw,5.2rem);
-    max-width:18ch;color:var(--silk);
+    max-width:18ch;color:var(--peacock);
   }
   .quote .shine{
-    background:linear-gradient(110deg,#fff6e0 0%,var(--gold-soft) 25%,#fff 45%,var(--gold) 70%,#fff6e0 100%);
+    background:linear-gradient(110deg,var(--red) 0%,var(--gold-deep) 30%,var(--violet) 55%,var(--peacock) 80%,var(--red) 100%);
     background-size:220% auto;
     -webkit-background-clip:text;background-clip:text;color:transparent;
     animation:shimmer 4.5s linear infinite;
@@ -131,47 +132,47 @@
   @keyframes shimmer{to{background-position:-220% center;}}
 
   .rule{
-    width:64px;height:1.5px;margin:3.4vmin 0;
-    background:linear-gradient(90deg,transparent,var(--gold),transparent);
+    width:72px;height:5px;margin:3.4vmin 0;border-radius:999px;
+    background:linear-gradient(90deg,var(--red),var(--gold),var(--peacock));
   }
 
   /* number badge */
   .badge{
-    font-family:'Cormorant Garamond',serif;
-    font-style:italic;font-weight:600;
+    font-family:'Baloo 2','Noto Sans SC',sans-serif;
+    font-weight:800;
     font-size:clamp(4rem,13vw,12rem);
-    line-height:.8;color:transparent;
-    -webkit-text-stroke:1.5px var(--accent,var(--gold));
-    opacity:.92;
+    line-height:.8;color:var(--accent,var(--gold));
+    opacity:1;
     position:relative;
   }
   .badge sub{
-    font-family:'Cormorant Garamond',serif;
-    font-style:normal;font-size:.16em;
-    letter-spacing:.5em;text-transform:uppercase;
-    -webkit-text-stroke:0;color:var(--accent,var(--gold));
+    font-family:'Fredoka','Noto Sans SC',sans-serif;
+    font-size:.16em;
+    letter-spacing:.2em;text-transform:uppercase;
+    color:var(--ink-2);
     position:absolute;left:50%;transform:translateX(-50%);
-    bottom:-1.6em;white-space:nowrap;opacity:.9;
+    bottom:-1.6em;white-space:nowrap;opacity:.85;
   }
 
   .point-title{
-    font-family:'Cormorant Garamond',serif;font-weight:600;
+    font-family:'Baloo 2','Noto Sans SC',sans-serif;font-weight:700;
     font-size:clamp(2.6rem,7.5vw,6.4rem);line-height:1.02;
     margin:5.5vmin 0 0;
   }
-  .point-title em{font-style:italic;color:var(--accent,var(--gold));}
+  .point-title em{font-style:normal;color:var(--accent,var(--gold));}
 
   .tags{
     display:flex;gap:1.6vmin;flex-wrap:wrap;justify-content:center;
     margin-top:3.4vmin;
   }
   .tag{
-    font-family:'Cormorant Garamond',serif;
-    font-size:clamp(.95rem,2vw,1.5rem);letter-spacing:.12em;
-    text-transform:uppercase;font-weight:500;
+    font-family:'Fredoka','Noto Sans SC',sans-serif;
+    font-size:clamp(.95rem,2vw,1.5rem);letter-spacing:.04em;
+    font-weight:500;
     padding:.5em 1.15em;border-radius:999px;
-    border:1px solid rgba(216,178,94,.4);
-    color:var(--silk);background:rgba(216,178,94,.06);
+    border:2px solid var(--accent,var(--gold));
+    color:var(--ink);background:#fff;
+    box-shadow:0 4px 0 rgba(0,0,0,.06);
   }
   .tag .dot{color:var(--accent,var(--gold));}
 
@@ -181,25 +182,26 @@
   }
   .tl-item{display:flex;flex-direction:column;align-items:center;gap:1.2vmin;}
   .tl-item .num{
-    font-family:'Cormorant Garamond',serif;font-style:italic;
-    font-weight:600;color:var(--accent,var(--violet));
+    font-family:'Baloo 2','Noto Sans SC',sans-serif;
+    font-weight:700;color:var(--accent,var(--violet));
     line-height:.9;
   }
   .tl-item.s .num{font-size:clamp(1.8rem,4vw,3rem);}
   .tl-item.m .num{font-size:clamp(2.6rem,6vw,4.6rem);}
   .tl-item.l .num{font-size:clamp(3.6rem,9vw,7rem);}
   .tl-item .lbl{
-    font-family:'Spectral',serif;letter-spacing:.18em;
-    text-transform:uppercase;font-size:clamp(.7rem,1.5vw,1rem);
-    color:#cdbf9f;
+    font-family:'Fredoka','Noto Sans SC',sans-serif;letter-spacing:.04em;
+    font-size:clamp(.7rem,1.5vw,1rem);
+    color:var(--ink-2);
   }
 
   .thanks{
-    font-family:'Cormorant Garamond',serif;font-weight:600;
+    font-family:'Baloo 2','Noto Sans SC',sans-serif;font-weight:800;
     font-size:clamp(4rem,15vw,13rem);line-height:.95;
+    color:var(--peacock);
   }
-  .thanks .em{font-style:italic;
-    background:linear-gradient(180deg,var(--gold-soft),var(--gold-deep));
+  .thanks .em{
+    background:linear-gradient(180deg,var(--gold),var(--gold-deep));
     -webkit-background-clip:text;background-clip:text;color:transparent;}
 
   /* ===== entrance animation (per active slide) ===== */
@@ -244,44 +246,41 @@
 
   .plate{position:relative;display:flex;flex-direction:column;align-items:center;}
   .plate .mat{
-    position:relative;padding:clamp(10px,1.4vw,20px);
-    background:linear-gradient(160deg,#15101f,#0c0912);
-    border:1px solid rgba(216,178,94,.45);
+    position:relative;padding:clamp(10px,1.4vw,18px);
+    background:#fff;
+    border:4px solid var(--accent,var(--gold));
+    border-radius:22px;
     box-shadow:
-      0 2px 0 rgba(216,178,94,.25) inset,
-      0 30px 60px -20px rgba(0,0,0,.8),
-      0 0 60px -20px rgba(216,178,94,.35);
+      0 14px 0 -4px rgba(255,209,102,.35),
+      0 30px 60px -24px rgba(120,90,40,.35);
   }
   .plate .mat::after{
-    content:"";position:absolute;inset:6px;
-    border:1px solid rgba(216,178,94,.3);pointer-events:none;
+    content:"";position:absolute;inset:7px;
+    border:2px dashed rgba(120,90,40,.18);border-radius:14px;pointer-events:none;
   }
   .plate img{
     display:block;width:100%;height:auto;
-    max-height:62vh;object-fit:contain;
-    filter:saturate(1.08) contrast(1.03);
+    max-height:62vh;object-fit:contain;border-radius:12px;
+    filter:saturate(1.12) contrast(1.03);
   }
   .plate .cap{
-    margin-top:2vmin;font-family:'Spectral',serif;
-    font-size:clamp(.62rem,1.1vw,.82rem);letter-spacing:.14em;
-    text-transform:uppercase;color:#b6a784;text-align:center;
+    margin-top:2vmin;font-family:'Fredoka','Noto Sans SC',sans-serif;
+    font-size:clamp(.66rem,1.15vw,.86rem);letter-spacing:.02em;
+    color:var(--ink-2);text-align:center;
     line-height:1.7;max-width:34ch;
   }
-  .plate .cap b{color:var(--gold-soft);font-weight:500;}
-  /* gilded corner ticks on the plate */
-  .plate .mat i{position:absolute;width:18px;height:18px;z-index:2;}
-  .plate .mat i::before,.plate .mat i::after{content:"";position:absolute;background:var(--gold);}
-  .plate .mat i::before{width:100%;height:2px;} .plate .mat i::after{height:100%;width:2px;}
-  .plate .mat .c1{top:-1px;left:-1px;} .plate .mat .c2{top:-1px;right:-1px;}
-  .plate .mat .c3{bottom:-1px;left:-1px;} .plate .mat .c4{bottom:-1px;right:-1px;}
-  .plate .mat .c2::before,.plate .mat .c2::after{right:0;}
-  .plate .mat .c3::before{bottom:0;} .plate .mat .c4::before,.plate .mat .c4::after{right:0;bottom:0;}
+  .plate .cap b{color:var(--gold-deep);font-weight:600;}
+  /* 圆点小角标 */
+  .plate .mat i{position:absolute;width:13px;height:13px;border-radius:50%;z-index:2;
+    background:var(--accent,var(--gold));box-shadow:0 0 0 3px #fff;}
+  .plate .mat .c1{top:-6px;left:-6px;} .plate .mat .c2{top:-6px;right:-6px;}
+  .plate .mat .c3{bottom:-6px;left:-6px;} .plate .mat .c4{bottom:-6px;right:-6px;}
 
   /* faint artwork backdrop (title) */
   .backdrop{
     position:absolute;inset:0;z-index:0;pointer-events:none;
     background-size:cover;background-position:center;
-    opacity:.14;
+    opacity:.1;
     -webkit-mask-image:radial-gradient(70% 70% at 50% 45%, #000 10%, transparent 72%);
     mask-image:radial-gradient(70% 70% at 50% 45%, #000 10%, transparent 72%);
   }
@@ -294,21 +293,21 @@
 
   /* big keyword words */
   .word{
-    font-family:'Cormorant Garamond',serif;font-weight:600;
-    font-size:clamp(2rem,5vw,4rem);line-height:1.05;color:var(--silk);
+    font-family:'Baloo 2','Noto Sans SC',sans-serif;font-weight:600;
+    font-size:clamp(2rem,5vw,4rem);line-height:1.05;color:var(--ink);
   }
-  .word em{font-style:italic;color:var(--accent,var(--gold));}
+  .word em{font-style:normal;color:var(--accent,var(--gold-deep));}
   .duo{display:flex;gap:clamp(1.5rem,4vw,3.4rem);flex-wrap:wrap;justify-content:center;align-items:flex-start;}
   .duo .word{display:flex;flex-direction:column;align-items:center;gap:.4vmin;}
   .duo .word small{
-    font-family:'Spectral',serif;font-weight:300;font-style:normal;
-    font-size:clamp(.7rem,1.4vw,.95rem);letter-spacing:.2em;
-    text-transform:uppercase;color:#b6a784;
+    font-family:'Fredoka','Noto Sans SC',sans-serif;font-weight:400;
+    font-size:clamp(.7rem,1.4vw,.95rem);letter-spacing:.04em;
+    color:var(--ink-2);
   }
   .stat{
-    font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;
+    font-family:'Baloo 2','Noto Sans SC',sans-serif;font-weight:800;
     font-size:clamp(3rem,8vw,6.5rem);line-height:.95;
-    background:linear-gradient(180deg,var(--gold-soft),var(--gold-deep));
+    background:linear-gradient(180deg,var(--gold),var(--gold-deep));
     -webkit-background-clip:text;background-clip:text;color:transparent;
   }
 
@@ -317,13 +316,12 @@
     position:relative;width:min(56vh,44vw);aspect-ratio:1;border-radius:50%;
     background-image:url('images/peacock-badge.jpg');
     background-size:300%;background-position:68% 27%;
-    border:1px solid rgba(216,178,94,.5);
+    border:5px solid #fff;
     box-shadow:
-      0 0 0 10px rgba(13,10,20,.7),
-      0 0 0 11px rgba(216,178,94,.4),
-      0 40px 80px -24px #000,
-      inset 0 0 70px rgba(0,0,0,.55);
-    filter:saturate(1.18) contrast(1.07);
+      0 0 0 10px rgba(42,214,196,.35),
+      0 0 0 12px var(--peacock),
+      0 30px 60px -24px rgba(120,90,40,.4);
+    filter:saturate(1.18) contrast(1.05);
     animation:drift 13s ease-in-out infinite alternate;
     overflow:hidden;
   }
@@ -336,7 +334,7 @@
   }
   @keyframes sheen{from{background-position:130% 0;}to{background-position:-70% 0;}}
   .closeup .ring{position:absolute;inset:-24px;border-radius:50%;
-    border:1px solid rgba(216,178,94,.22);pointer-events:none;}
+    border:3px dashed rgba(42,214,196,.4);pointer-events:none;}
 
   /* ===== Three-point thumbnails (slide 4) ===== */
   .thumbs{display:flex;gap:clamp(1.4rem,3.5vw,3.2rem);
@@ -344,23 +342,23 @@
   .thumb{display:flex;flex-direction:column;align-items:center;gap:1.3vmin;
     width:clamp(150px,20vw,232px);}
   .thumb .mat{position:relative;padding:8px;width:100%;
-    background:linear-gradient(160deg,#15101f,#0c0912);
-    border:1px solid rgba(216,178,94,.45);
-    box-shadow:0 20px 44px -20px #000;
+    background:#fff;border-radius:20px;
+    border:4px solid var(--accent,var(--gold));
+    box-shadow:0 12px 0 -4px rgba(255,209,102,.3), 0 20px 40px -22px rgba(120,90,40,.4);
     transition:transform .5s cubic-bezier(.2,.7,.2,1), box-shadow .5s;}
-  .thumb .mat::after{content:"";position:absolute;inset:4px;
-    border:1px solid rgba(216,178,94,.28);pointer-events:none;}
-  .thumb:hover .mat{transform:translateY(-8px);
-    box-shadow:0 28px 54px -20px #000, 0 0 40px -14px var(--accent,var(--gold));}
-  .thumb img{display:block;width:100%;aspect-ratio:1;object-fit:cover;
-    filter:saturate(1.1);}
-  .thumb .n{font-family:'Cormorant Garamond',serif;font-style:italic;
-    font-weight:600;color:var(--accent,var(--gold));
+  .thumb .mat::after{content:"";position:absolute;inset:5px;
+    border:2px dashed rgba(120,90,40,.16);border-radius:13px;pointer-events:none;}
+  .thumb:hover .mat{transform:translateY(-10px) rotate(-1.5deg);
+    box-shadow:0 18px 0 -4px rgba(255,209,102,.4), 0 28px 50px -20px rgba(120,90,40,.5);}
+  .thumb img{display:block;width:100%;aspect-ratio:1;object-fit:cover;border-radius:13px;
+    filter:saturate(1.12);}
+  .thumb .n{font-family:'Baloo 2','Noto Sans SC',sans-serif;
+    font-weight:800;color:var(--accent,var(--gold));
     font-size:clamp(1.2rem,2.4vw,1.7rem);line-height:.9;margin-top:.4vmin;}
-  .thumb .t{font-family:'Cormorant Garamond',serif;font-weight:600;
-    font-size:clamp(1.05rem,2.2vw,1.6rem);color:var(--silk);line-height:1.05;}
-  .thumb small{font-family:'Spectral',serif;font-size:clamp(.6rem,1.1vw,.75rem);
-    letter-spacing:.18em;text-transform:uppercase;color:#b6a784;}
+  .thumb .t{font-family:'Baloo 2','Noto Sans SC',sans-serif;font-weight:700;
+    font-size:clamp(1.05rem,2.2vw,1.6rem);color:var(--ink);line-height:1.05;}
+  .thumb small{font-family:'Fredoka','Noto Sans SC',sans-serif;font-size:clamp(.6rem,1.1vw,.75rem);
+    letter-spacing:.04em;color:var(--ink-2);}
 
   @media (max-width:900px){
     .split,.split.flip{grid-template-columns:1fr;gap:3rem;}
@@ -374,42 +372,42 @@
 
   /* ===== Chrome (progress / counter / hint) ===== */
   .progress{
-    position:fixed;left:0;top:0;height:3px;z-index:40;
-    background:linear-gradient(90deg,var(--gold-deep),var(--gold-soft),var(--gold));
+    position:fixed;left:0;top:0;height:6px;z-index:40;
+    background:linear-gradient(90deg,var(--red),var(--gold),var(--peacock),var(--violet));
     width:0;transition:width .6s cubic-bezier(.4,0,.1,1);
-    box-shadow:0 0 16px rgba(216,178,94,.6);
+    border-radius:0 6px 6px 0;
   }
   .counter{
     position:fixed;right:3.6vmin;bottom:3.2vmin;z-index:40;
-    font-family:'Cormorant Garamond',serif;letter-spacing:.18em;
-    font-size:clamp(.8rem,1.4vw,1.05rem);color:var(--gold);opacity:.8;
+    font-family:'Baloo 2','Noto Sans SC',sans-serif;letter-spacing:.04em;
+    font-size:clamp(.8rem,1.4vw,1.05rem);color:var(--gold-deep);opacity:.9;
   }
-  .counter b{color:var(--silk);font-weight:600;}
+  .counter b{color:var(--peacock);font-weight:700;}
   .seal{
     position:fixed;left:3.6vmin;bottom:3vmin;z-index:40;
     width:clamp(38px,4vw,52px);height:clamp(38px,4vw,52px);
-    border:1.5px solid var(--gold);border-radius:9px;
-    display:grid;place-items:center;opacity:.85;
-    box-shadow:0 0 0 3px rgba(216,178,94,.08), inset 0 0 12px rgba(216,178,94,.12);
+    background:var(--red);border:3px solid #fff;border-radius:16px;
+    display:grid;place-items:center;opacity:1;transform:rotate(-6deg);
+    box-shadow:0 8px 18px -6px rgba(255,93,115,.6);
   }
-  .seal span{font-family:'Noto Serif SC',serif;font-weight:900;
-    color:var(--gold-soft);font-size:clamp(.9rem,2vw,1.3rem);line-height:1;}
+  .seal span{font-family:'ZCOOL KuaiLe','Noto Sans SC',sans-serif;font-weight:400;
+    color:#fff;font-size:clamp(1rem,2.2vw,1.5rem);line-height:1;}
   .hint{
     position:fixed;left:50%;bottom:2.6vmin;transform:translateX(-50%);
-    z-index:40;font-family:'Spectral',serif;letter-spacing:.22em;
-    text-transform:uppercase;font-size:.66rem;color:var(--gold);
-    opacity:.4;transition:opacity .5s;
+    z-index:40;font-family:'Fredoka','Noto Sans SC',sans-serif;letter-spacing:.06em;
+    font-size:.72rem;color:var(--gold-deep);
+    opacity:.6;transition:opacity .5s;
   }
   .hint.hide{opacity:0;}
-  kbd{border:1px solid rgba(216,178,94,.45);border-radius:4px;padding:1px 6px;
-    font-family:inherit;color:var(--silk);}
+  kbd{border:2px solid var(--gold);border-radius:7px;padding:1px 6px;
+    font-family:inherit;color:var(--gold-deep);background:#fff;}
 
   .dots{position:fixed;left:50%;top:3vmin;transform:translateX(-50%);
     z-index:40;display:flex;gap:10px;}
-  .dots i{width:7px;height:7px;border-radius:50%;display:block;
-    background:rgba(216,178,94,.28);transition:all .4s;}
-  .dots i.on{background:var(--gold);transform:scale(1.35);
-    box-shadow:0 0 10px rgba(216,178,94,.7);}
+  .dots i{width:9px;height:9px;border-radius:50%;display:block;cursor:pointer;
+    background:rgba(255,180,41,.4);transition:all .4s;}
+  .dots i.on{background:var(--red);transform:scale(1.4);
+    box-shadow:0 0 0 3px rgba(255,93,115,.25);}
 
   @media (max-width:640px){
     .lead{max-width:90vw;} .frame{inset:2.4vmin;}
@@ -428,7 +426,7 @@
     <div class="backdrop" style="background-image:url('images/dragon-robe.jpg')"></div>
     <div class="frame"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
     <div class="content">
-      <p class="kicker reveal" style="--d:.1s">A Hidden Treasure of Chinese Culture</p>
+      <p class="kicker reveal" style="--d:.1s">✨ A Hidden Treasure of Chinese Culture ✨</p>
       <h1 class="reveal" style="--d:.28s">Cantonese<br><span class="em">Embroidery</span></h1>
       <div class="rule reveal" style="--d:.6s"></div>
       <p class="cn reveal" style="--d:.72s; font-size:clamp(1.3rem,3vw,2.2rem); letter-spacing:.5em;">粤　绣</p>
@@ -440,7 +438,7 @@
     <div class="frame"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
     <div class="content">
       <p class="kicker reveal" style="--d:.1s">A Painting That…</p>
-      <p class="quote reveal" style="--d:.3s"><span class="shine">Shines like<br>Jewelry?</span></p>
+      <p class="quote reveal" style="--d:.3s"><span class="shine">Shines like<br>Jewelry?</span> 💎</p>
     </div>
   </section>
 
@@ -467,7 +465,7 @@
     <div class="frame"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
     <div class="content">
       <p class="kicker reveal" style="--d:.1s">What Makes It So Special?</p>
-      <h2 class="reveal" style="--d:.26s">Let me share <span style="font-style:italic;color:var(--gold-soft)">three</span> things</h2>
+      <h2 class="reveal" style="--d:.26s">Let me share <span style="color:var(--red)">three</span> things 🎨</h2>
       <div class="thumbs">
         <div class="thumb reveal" style="--d:.5s; --accent:var(--red)">
           <div class="mat"><img src="images/dragon-robe.jpg" alt="" style="object-position:center 35%"></div>
@@ -524,8 +522,8 @@
         <div class="badge reveal" style="--d:.1s">II<sub>The Materials</sub></div>
         <h2 class="point-title reveal" style="--d:.34s">Surprisingly <em>Creative</em></h2>
         <div class="rule reveal" style="--d:.6s"></div>
-        <p class="word reveal" style="--d:.72s; font-size:clamp(1.6rem,3.4vw,2.6rem);"><em style="color:var(--peacock-bright)">Peacock</em> feathers <span style="opacity:.5">→</span> shiny thread</p>
-        <p class="word reveal" style="--d:.9s; font-size:clamp(1.6rem,3.4vw,2.6rem); margin-top:1.6vmin;"><em style="color:var(--peacock-bright)">Horse-tail</em> hair <span style="opacity:.5">→</span> lasts for centuries</p>
+        <p class="word reveal" style="--d:.72s; font-size:clamp(1.6rem,3.4vw,2.6rem);"><em style="color:var(--peacock)">Peacock</em> feathers <span style="opacity:.5">→</span> shiny thread</p>
+        <p class="word reveal" style="--d:.9s; font-size:clamp(1.6rem,3.4vw,2.6rem); margin-top:1.6vmin;"><em style="color:var(--peacock)">Horse-tail</em> hair <span style="opacity:.5">→</span> lasts for centuries</p>
       </div>
     </div>
   </section>
@@ -541,8 +539,8 @@
         <p class="kicker reveal" style="--d:.1s">Look Closer</p>
         <h2 class="point-title reveal" style="--d:.3s">Jewel-like <em>Shine</em></h2>
         <div class="rule reveal" style="--d:.58s"></div>
-        <p class="word reveal" style="--d:.7s; font-size:clamp(1.6rem,3.4vw,2.6rem);">Each eye-spot — a real <em style="color:var(--peacock-bright)">peacock feather</em></p>
-        <p class="lead reveal" style="--d:.9s; font-style:italic; color:var(--gold-soft); margin-top:2.4vmin; max-width:24ch;">Shining like tiny gems, woven into thread.</p>
+        <p class="word reveal" style="--d:.7s; font-size:clamp(1.6rem,3.4vw,2.6rem);">Each eye-spot — a real <em style="color:var(--peacock)">peacock feather</em></p>
+        <p class="lead reveal" style="--d:.9s; font-style:italic; color:var(--gold-deep); margin-top:2.4vmin; max-width:24ch;">Shining like tiny gems, woven into thread.</p>
       </div>
     </div>
   </section>
@@ -589,7 +587,7 @@
     <div class="frame"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
     <div class="content">
       <p class="kicker reveal" style="--d:.1s">谢　谢</p>
-      <p class="thanks reveal" style="--d:.28s">Thank <span class="em">you</span>!</p>
+      <p class="thanks reveal" style="--d:.28s">Thank <span class="em">you</span>! 🌈</p>
     </div>
   </section>
 
