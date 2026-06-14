@@ -288,6 +288,34 @@
     mask-image:radial-gradient(70% 70% at 50% 45%, #000 10%, transparent 72%);
   }
 
+  /* rotating gallery backdrop (conclusion) */
+  .bg-slideshow{
+    position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;
+  }
+  .bg-slideshow .frame-img{
+    position:absolute;inset:0;
+    background-size:cover;background-position:center;
+    opacity:0;will-change:opacity,transform;
+    -webkit-mask-image:radial-gradient(95% 95% at 50% 45%, #000 55%, transparent 98%);
+    mask-image:radial-gradient(95% 95% at 50% 45%, #000 55%, transparent 98%);
+  }
+  /* only animate while the conclusion slide is on screen */
+  .slide.active .bg-slideshow .frame-img{
+    animation:bgcycle 32s ease-in-out infinite;
+  }
+  @keyframes bgcycle{
+    0%   {opacity:0; transform:scale(1.12);}
+    3%   {opacity:.7;}
+    22%  {opacity:.7;}
+    25%  {opacity:0; transform:scale(1.0);}
+    100% {opacity:0; transform:scale(1.0);}
+  }
+  /* light vignette — darkens behind the title only, edges stay clear */
+  .bg-slideshow::after{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(48% 42% at 50% 48%, rgba(13,10,20,.6) 0%, rgba(13,10,20,.18) 55%, transparent 100%);
+  }
+
   /* wide panoramic plate (banner) */
   .plate.wide{width:min(1280px,94vw);}
   .plate.wide img{max-height:56vh;}
@@ -575,7 +603,12 @@
 
   <!-- 8 · CONCLUSION -->
   <section class="slide">
-    <div class="backdrop" style="background-image:url('images/peacock-badge.jpg')"></div>
+    <div class="bg-slideshow">
+      <div class="frame-img" style="background-image:url('images/dragon-robe.jpg'); animation-delay:0s"></div>
+      <div class="frame-img" style="background-image:url('images/peacock-badge.jpg'); animation-delay:8s"></div>
+      <div class="frame-img" style="background-image:url('images/dragon-phoenix-valance.jpg'); animation-delay:16s"></div>
+      <div class="frame-img" style="background-image:url('images/flowers-birds-panel.jpg'); animation-delay:24s"></div>
+    </div>
     <div class="frame"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
     <div class="content">
       <p class="kicker reveal" style="--d:.1s">In Conclusion</p>
