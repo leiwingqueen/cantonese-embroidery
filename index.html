@@ -230,11 +230,13 @@
 
   /* ===== Split layout: framed artwork + text ===== */
   .split{
-    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);
+    display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);
     gap:clamp(3rem,6vw,7rem);align-items:center;
-    width:100%;max-width:1300px;
+    width:100%;max-width:1450px;
   }
-  .split.flip{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);}
+  .split.flip{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);}
+  /* The Heart (Patience) slide — taller image (portrait, height-constrained) */
+  .slide.heart .plate img{max-height:90vh;}
   .split .copy{display:flex;flex-direction:column;align-items:flex-start;text-align:left;}
   .split.flip .copy{order:2;}
   .split .copy .lead{max-width:30ch;}
@@ -258,7 +260,7 @@
   }
   .plate img{
     display:block;width:100%;height:auto;
-    max-height:74vh;object-fit:contain;
+    max-height:84vh;object-fit:contain;
     filter:saturate(1.08) contrast(1.03);
   }
   .plate .cap{
@@ -342,7 +344,7 @@
   .thumbs{display:flex;gap:clamp(1.4rem,3.5vw,3.2rem);
     margin-top:5.5vmin;flex-wrap:wrap;justify-content:center;}
   .thumb{display:flex;flex-direction:column;align-items:center;gap:1.3vmin;
-    width:clamp(180px,24vw,280px);}
+    width:clamp(240px,32vw,380px);}
   .thumb .mat{position:relative;padding:8px;width:100%;
     background:linear-gradient(160deg,#15101f,#0c0912);
     border:1px solid rgba(216,178,94,.45);
@@ -548,7 +550,7 @@
   </section>
 
   <!-- 7 · POINT 3 — PATIENCE -->
-  <section class="slide" style="--accent:var(--violet)">
+  <section class="slide heart" style="--accent:var(--violet)">
     <div class="frame"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
     <div class="content split flip">
       <div class="copy">
